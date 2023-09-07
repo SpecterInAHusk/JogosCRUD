@@ -1,0 +1,7 @@
+{
+  "name": "JogosCRUD",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
