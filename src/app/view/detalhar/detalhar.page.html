@@ -1,13 +1,38 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>detalhar</ion-title>
+    <ion-title>Biblioteca de Jogos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">detalhar</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content >
+  <ion-list>
+    <ion-item>
+      <ion-input label="Nome" placeholder="Insira o nome" [(ngModel)]="nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Data de Lançamento" placeholder="Insira a data de lançamento" [(ngModel)]="dataLancamento" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Número de Jogadores" placeholder="Insira o número de jogadores" [(ngModel)]="numJogadores"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select label="Gênero" placeholder="Selecione" [(ngModel)]="genero">
+        <ion-select-option value="0">Ação</ion-select-option>
+        <ion-select-option value="1">Puzzle</ion-select-option>
+        <ion-select-option value="2">Aventura</ion-select-option>
+        <ion-select-option value="3">Terror</ion-select-option>
+        <ion-select-option value="4">Educacional</ion-select-option>
+        <ion-select-option value="5">Esportes</ion-select-option>
+        <ion-select-option value="6">Corrida</ion-select-option>
+        <ion-select-option value="7">Luta</ion-select-option>
+        <ion-select-option value="8">Tiro</ion-select-option>
+        <ion-select-option value="9">RPG</ion-select-option>
+        <ion-select-option value="10">Não Definido</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-button expand="block" (click)="editar()">Editar</ion-button>
+    <ion-button expand="block" (click)="excluir()">Excluir</ion-button>
+  </ion-list>
 </ion-content>

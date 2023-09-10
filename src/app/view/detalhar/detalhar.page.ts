@@ -34,6 +34,7 @@ export class DetalharPage implements OnInit {
     let novo: Jogo = new Jogo(this.nome, this.dataLancamento);
     novo.genero = this.genero;
     novo.numJogadores = this.numJogadores;
+    this.firebase.editJogo(novo, this.jogo.id);
     this.router.navigate(['home']);
   }
 
