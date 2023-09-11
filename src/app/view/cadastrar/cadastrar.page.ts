@@ -13,6 +13,7 @@ export class CadastrarPage implements OnInit {
   nome!: string;
   dataLancamento!: number;
   genero!: string;
+  plataforma!: string;
   numJogadores!: number;
 
   constructor(
@@ -25,11 +26,12 @@ export class CadastrarPage implements OnInit {
 
   cadastrar() {
     if (!this.nome || !this.dataLancamento) {
-      this.presentAlert('Erro!', 'Nome e data de lançamento são obrigatórios!');
+      this.presentAlert('Erro!', 'Nome e ano de lançamento são obrigatórios!');
     } else {
       this.presentAlert('Sucesso!', 'Jogo cadastrado com sucesso!');
       let novo: Jogo = new Jogo(this.nome, this.dataLancamento);
       novo.genero = this.genero;
+      novo.plataforma = this.plataforma;
       novo.numJogadores = this.numJogadores;
       this.firebase.addJogo(novo);
       this.router.navigate(['home'])

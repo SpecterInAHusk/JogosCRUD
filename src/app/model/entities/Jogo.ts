@@ -3,6 +3,7 @@ export class Jogo {
   private _nome: string;
   private _dataLancamento: number;
   private _genero!: string;
+  private _plataforma!: string;
   private _numJogadores!: number;
 
 
@@ -27,6 +28,10 @@ export class Jogo {
     return this._genero;
   }
 
+  public get plataforma(): string {
+    return this._plataforma;
+  }
+
   public get numJogadores(): number {
     return this._numJogadores;
   }
@@ -41,6 +46,10 @@ export class Jogo {
 
   public set genero(genero: string) {
     this._genero = genero;
+  }
+
+  public set plataforma(plataforma: string) {
+    this._plataforma = plataforma;
   }
 
   public set numJogadores(numJogadores: number) {

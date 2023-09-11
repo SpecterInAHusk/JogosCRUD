@@ -12,6 +12,12 @@
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
 
+
+@font-face {
+  font-family: 'VT323';
+  src: url('./assets/font/VT323/VT323-Regular.ttf') format('truetype');
+}
+
 /* Basic CSS for apps built with Ionic */
 @import "@ionic/angular/css/normalize.css";
 @import "@ionic/angular/css/structure.css";

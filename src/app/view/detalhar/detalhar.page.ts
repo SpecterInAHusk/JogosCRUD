@@ -15,6 +15,7 @@ export class DetalharPage implements OnInit {
   dataLancamento!: number;
   genero!: string;
   numJogadores!: number;
+  plataforma!: string;
 
   constructor(
     private alertcontroller: AlertController,
@@ -27,19 +28,59 @@ export class DetalharPage implements OnInit {
     this.nome = this.jogo.nome;
     this.dataLancamento = this.jogo.dataLancamento;
     this.genero = this.jogo.genero;
+    this.plataforma = this.jogo.plataforma;
     this.numJogadores = this.jogo.numJogadores;
   }
 
   editar() {
-    let novo: Jogo = new Jogo(this.nome, this.dataLancamento);
-    novo.genero = this.genero;
-    novo.numJogadores = this.numJogadores;
-    this.firebase.editJogo(novo, this.jogo.id);
-    this.router.navigate(['home']);
+    if (!this.nome || !this.dataLancamento) {
+      this.presentAlert('Erro!', 'Nome e ano de lançamento são obrigatórios!');
+    } else {
+      this.presentAlert('Sucesso!', 'Dados alterados com sucesso!');
+      let novo: Jogo = new Jogo(this.nome, this.dataLancamento);
+      novo.genero = this.genero;
+      novo.plataforma = this.plataforma;
+      novo.numJogadores = this.numJogadores;
+      this.firebase.editJogo(novo, this.jogo.id);
+      this.router.navigate(['home']);
+    }
   }
 
   excluir() {
+    this.presentAlert('Sucesso!', 'Exclusão realizada com sucesso!');
     this.firebase.deleteJogo(this.jogo.id);
     this.router.navigate(['home']);
+  }
+
+  async presentAlert(subHeader: string, message: string) {
+    const alert = await this.alertcontroller.create({
+      header: 'Edição de Jogo',
+      subHeader: subHeader,
+      message: message,
+      buttons: ['OK'],
+    });
+    await alert.present();
+  }
+
+  async alertDeleteConfirm() {
+    const alert = await this.alertcontroller.create({
+      header: 'Confirmar Exclusão',
+      message: 'Tem certeza que deseja excluir?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+        },
+
+        {
+          text: 'Confirmar',
+          handler: () => {
+            this.excluir();
+          },
+        },
+      ],
+    });
+
+    await alert.present();
   }
 }

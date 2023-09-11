@@ -1,16 +1,26 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Biblioteca de Jogos
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" icon="arrow-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title> Biblioteca de Jogos </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content >
-
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Título</ion-label>
+      <ion-label>Gênero</ion-label>
+      <ion-label>Ano</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-item-divider></ion-item-divider>
   <ion-list *ngFor="let jogo of listaJogos;">
     <ion-item (click)="editarJogo(jogo)">
       <ion-label>{{jogo.nome}}</ion-label>
+      <ion-label>{{jogo.genero}}</ion-label>
+      <ion-label>{{jogo.dataLancamento}}</ion-label>
     </ion-item>
   </ion-list>
 

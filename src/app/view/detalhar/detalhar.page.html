@@ -1,5 +1,9 @@
 <ion-header>
   <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" icon="arrow-back"></ion-back-button>
+    </ion-buttons>
     <ion-title>Biblioteca de Jogos</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,25 +18,33 @@
     </ion-item>
 
     <ion-item>
-      <ion-input label="Número de Jogadores" placeholder="Insira o número de jogadores" [(ngModel)]="numJogadores"></ion-input>
+      <ion-input label="Plataforma" placeholder="Insira a plataforma" [(ngModel)]="plataforma"></ion-input>
     </ion-item>
 
     <ion-item>
+      <ion-input label="Número de Jogadores" placeholder="Insira o número de jogadores" [(ngModel)]="numJogadores"></ion-input>
+    </ion-item>
+
+
+
+    <ion-item>
       <ion-select label="Gênero" placeholder="Selecione" [(ngModel)]="genero">
-        <ion-select-option value="0">Ação</ion-select-option>
-        <ion-select-option value="1">Puzzle</ion-select-option>
-        <ion-select-option value="2">Aventura</ion-select-option>
-        <ion-select-option value="3">Terror</ion-select-option>
-        <ion-select-option value="4">Educacional</ion-select-option>
-        <ion-select-option value="5">Esportes</ion-select-option>
-        <ion-select-option value="6">Corrida</ion-select-option>
-        <ion-select-option value="7">Luta</ion-select-option>
-        <ion-select-option value="8">Tiro</ion-select-option>
-        <ion-select-option value="9">RPG</ion-select-option>
-        <ion-select-option value="10">Não Definido</ion-select-option>
+        <ion-select-option value="Ação">Ação</ion-select-option>
+        <ion-select-option value="Puzzle">Puzzle</ion-select-option>
+        <ion-select-option value="Aventura">Aventura</ion-select-option>
+        <ion-select-option value="Terror">Terror</ion-select-option>
+        <ion-select-option value="Educacional">Educacional</ion-select-option>
+        <ion-select-option value="Esporte">Esporte</ion-select-option>
+        <ion-select-option value="Corrida">Corrida</ion-select-option>
+        <ion-select-option value="Luta">Luta</ion-select-option>
+        <ion-select-option value="Tiro">Tiro</ion-select-option>
+        <ion-select-option value="RPG">RPG</ion-select-option>
+        <ion-select-option value="Arcade">Arcade</ion-select-option>
+        <ion-select-option value="Plataforma">Plataforma</ion-select-option>
+        <ion-select-option value="Não Definido">Não Definido</ion-select-option>
       </ion-select>
     </ion-item>
     <ion-button expand="block" (click)="editar()">Editar</ion-button>
-    <ion-button expand="block" (click)="excluir()">Excluir</ion-button>
+    <ion-button expand="block" (click)="alertDeleteConfirm()">Excluir</ion-button>
   </ion-list>
 </ion-content>
