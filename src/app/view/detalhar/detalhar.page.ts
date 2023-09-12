@@ -33,8 +33,8 @@ export class DetalharPage implements OnInit {
   }
 
   editar() {
-    if (!this.nome || !this.dataLancamento) {
-      this.presentAlert('Erro!', 'Nome e ano de lançamento são obrigatórios!');
+    if (!this.nome || !this.dataLancamento || !this.genero || !this.plataforma || !this.numJogadores) {
+      this.presentAlert('Erro!', 'Todos os campos são obrigatórios!');
     } else {
       this.presentAlert('Sucesso!', 'Dados alterados com sucesso!');
       let novo: Jogo = new Jogo(this.nome, this.dataLancamento);

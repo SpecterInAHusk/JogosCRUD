@@ -74,4 +74,6 @@ Thumbs.db
 
 ### Firebase Patch ###
 .runtimeconfig.json
+.firebase/hosting.d3d3.cache
+.firebase/
 .firebase/*
