@@ -29,10 +29,11 @@ export class JogoFirebaseService {
       nome: jogo.nome,
       dataLancamento: jogo.dataLancamento,
       genero: jogo.genero,
-      plafatorma: jogo.plataforma,
+      plataforma: jogo.plataforma,
       numJogadores: jogo.numJogadores,
     });
   }
+
 
   editJogo(jogo: Jogo, id: string) {
     return this.firebase.collection(this.PATH).doc(id).update({
