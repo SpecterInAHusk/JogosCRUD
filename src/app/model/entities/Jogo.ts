@@ -12,6 +12,7 @@ export class Jogo {
     this._dataLancamento = dataLancamento;
   }
 
+
   public get id(): string {
     return this._id;
   }
