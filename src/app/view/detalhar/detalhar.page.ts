@@ -16,6 +16,7 @@ export class DetalharPage implements OnInit {
   genero!: string;
   numJogadores!: number;
   plataforma!: string;
+  edicao: boolean = true;
 
   constructor(
     private alertcontroller: AlertController,
@@ -50,6 +51,14 @@ export class DetalharPage implements OnInit {
     this.presentAlert('Sucesso!', 'Exclusão realizada com sucesso!');
     this.firebase.deleteJogo(this.jogo.id);
     this.router.navigate(['home']);
+  }
+
+  habilitarEdicao(){
+    if(this.edicao){
+      this.edicao = false;
+    }else{
+      this.edicao = true;
+    }
   }
 
   async presentAlert(subHeader: string, message: string) {
